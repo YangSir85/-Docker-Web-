@@ -1,6 +1,7 @@
 # 用Docker部署Web应用
-
-## 一、为什么要用Docker？
+## 一、什么是Docker？
+docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系。
+## 二、为什么要用Docker？
 
 想象你要搬家：传统方式是把家具拆散再组装，费时费力。Docker就像一套标准化的集装箱系统，把你的应用和所需环境打包成标准货箱，无论搬到哪个"港口"（服务器）都能即插即用。
 
@@ -16,7 +17,7 @@
 | 资源占用     | 低（MB级）      | 高（GB级）  |
 | 性能损耗     | 接近原生        | 较高        |
 
-## 二、编写你的第一个Dockerfile
+## 三、编写你的第一个Dockerfile
 
 以Node.js应用为例，我们创建`Dockerfile`（无文件后缀）：
 
@@ -48,7 +49,7 @@ CMD ["npm", "start"]
 2. 分层构建：频繁变动的步骤放在Dockerfile后面
 3. 选择轻量级基础镜像（如alpine版本）
 
-## 三、构建与运行全流程
+## 四、构建与运行全流程
 
 ### 3.1 构建镜像
 ```bash
@@ -81,7 +82,7 @@ docker stop web-server
 docker rm web-server
 ```
 
-## 四、部署到云平台（以阿里云为例）
+## 五、部署到云平台（以阿里云为例）
 
 ### 4.1 镜像推送
 1. 登录容器镜像服务控制台
@@ -102,21 +103,12 @@ docker push registry.cn-hangzhou.aliyuncs.com/your-namespace/your-repo:v1
 
 ![部署架构图](https://example.com/deploy-arch.png)
 
-## 五、避坑指南
+## 六、出现的问题及解决方案
 
 1. **时区问题**：基础镜像默认UTC时间，可通过`ENV TZ=Asia/Shanghai`设置
 2. **文件权限**：Linux容器默认root用户，添加`USER node`切换非特权用户
 3. **存储持久化**：重要数据使用Volume挂载
 4. **健康检查**：添加HEALTHCHECK指令保证服务可用性
-
-## 六、下一步学习方向
-
-- Docker Compose多容器编排
-- Kubernetes容器编排实战
-- CI/CD自动化部署流水线
-- 服务网格（Service Mesh）应用
-
-> 实践建议：从简单的静态网站开始，逐步尝试数据库容器化，最终完成全栈应用的容器化部署。
 
 **附录：常用资源**
 - [Docker官方文档](https://docs.docker.com/)
