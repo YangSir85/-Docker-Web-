@@ -101,8 +101,6 @@ docker push registry.cn-hangzhou.aliyuncs.com/your-namespace/your-repo:v1
 4. 配置服务（Service）和入口（Ingress）
 5. 设置自动扩缩容策略（可选）
 
-![部署架构图](https://example.com/deploy-arch.png)
-
 ## 六、出现的问题及解决方案
 
 1. **时区问题**：基础镜像默认UTC时间，可通过`ENV TZ=Asia/Shanghai`设置
