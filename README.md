@@ -115,4 +115,3 @@ docker push registry.cn-hangzhou.aliyuncs.com/your-namespace/your-repo:v1
 
 ---
 
-通过这篇指南，你已经掌握了使用Docker部署Web应用的核心技能。现在就去把你的应用装进"集装箱"，开启云原生之旅吧！遇到问题记得：善用`docker logs`查日志，多用`docker exec`进容器调试，祝你好运！
